@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "description": "",
+  "name": "Kazik Player",
+  "description": "A modern multi-provider audio streaming and downloading player with offline cache, 10-band EQ presets, synced lyrics, and advanced queue management.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
