@@ -11,7 +11,6 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.LazyGridScope
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -676,7 +675,7 @@ fun SearchScreen(viewModel: KazikViewModel, onPlayTrack: (CachedTrack) -> Unit) 
                     Text("All", fontSize = 11.sp)
                 }
 
-                MusicProvider.values().forEach { provider ->
+                MusicProvider.entries.forEach { provider ->
                     val isSelected = selectedProvider == provider
                     val pColor = Color(android.graphics.Color.parseColor(provider.brandColorHex))
                     
@@ -727,10 +726,6 @@ fun SearchScreen(viewModel: KazikViewModel, onPlayTrack: (CachedTrack) -> Unit) 
         }
     }
 }
-
-// Spacing utility
-@Composable
-private fun spacing(dp: Int) = dp.dp
 
 // --- SUB-SCREEN: LIBRARY ---
 @OptIn(ExperimentalFoundationApi::class)
@@ -1871,23 +1866,6 @@ fun QuickPresetsPanel(activePreset: String, onPresetClick: (String) -> Unit) {
             }
         }
     }
-}
-
-@Composable
-fun LazyVerticalGrid(
-    columns: GridCells,
-    horizontalArrangement: Arrangement.HorizontalOrVertical,
-    verticalArrangement: Arrangement.HorizontalOrVertical,
-    modifier: Modifier,
-    content: LazyGridScope.() -> Unit
-) {
-    androidx.compose.foundation.lazy.grid.LazyVerticalGrid(
-        columns = columns,
-        horizontalArrangement = horizontalArrangement,
-        verticalArrangement = verticalArrangement,
-        modifier = modifier,
-        content = content
-    )
 }
 
 // Canvas driven jumping bars visualizer
