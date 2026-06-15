@@ -56,11 +56,11 @@ android {
     buildConfig = true
   }
   testOptions { unitTests { isIncludeAndroidResources = true } }
+}
 
-  applicationVariants.all {
-    outputs.all {
-      outputFileName = "playerKazik.apk"
-    }
+android.applicationVariants.all {
+  outputs.all {
+    outputFileName = "playerKazik.apk"
   }
 }
 
