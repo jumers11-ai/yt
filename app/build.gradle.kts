@@ -58,12 +58,6 @@ android {
   testOptions { unitTests { isIncludeAndroidResources = true } }
 }
 
-android.applicationVariants.all {
-  outputs.all {
-    outputFileName = "playerKazik.apk"
-  }
-}
-
 // Configure the Secrets Gradle Plugin to use .env and .env.example files
 // to match the convention used in Web projects.
 secrets {
