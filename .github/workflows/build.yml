@@ -30,7 +30,7 @@ jobs:
         run: |
           if [ -f "./gradlew" ]; then
             chmod +x gradlew
-            ./gradlew assembleDebug --stacktrace
+            ./gradlew assembleDebug --stacktrace --no-configuration-cache
           else
             gradle assembleDebug --stacktrace
           fi
