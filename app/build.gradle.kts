@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-  namespace = "com.example"
+  namespace = "com.chuj.pod"
   compileSdk = 35
 
   defaultConfig {
-    applicationId = "com.example"
+    applicationId = "com.chuj.pod"
     minSdk = 24
     targetSdk = 35
     versionCode = 1
@@ -56,6 +56,12 @@ android {
     buildConfig = true
   }
   testOptions { unitTests { isIncludeAndroidResources = true } }
+
+  applicationVariants.all {
+    outputs.all {
+      outputFileName = "playerKazik.apk"
+    }
+  }
 }
 
 // Configure the Secrets Gradle Plugin to use .env and .env.example files
