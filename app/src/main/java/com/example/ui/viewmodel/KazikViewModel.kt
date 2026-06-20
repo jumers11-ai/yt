@@ -12,7 +12,6 @@ import com.example.data.service.EqualizerState
 import com.example.data.service.PlaybackState
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
-import java.io.File
 import kotlin.random.Random
 
 class KazikViewModel(application: Application) : AndroidViewModel(application) {
@@ -201,11 +200,6 @@ class KazikViewModel(application: Application) : AndroidViewModel(application) {
     // Trigger downloading
     fun downloadTrack(track: CachedTrack) {
         viewModelScope.launch {
-            // Check if provider is connected before allowing downloads (Optional/Encouraged)
-            val isProdConnected = oauthAccounts.value.values.any { 
-                it.provider.name.replace("_", "").equals(track.provider.replace(" ", ""), ignoreCase = true) && it.isConnected 
-            }
-
             val mockSize = Random.nextLong(3_500_000, 8_000_000) // 3.5MB to 8MB
             val simulatedPath = "/data/user/0/${app.packageName}/files/downloads/${track.id}.mp3"
             repository.downloadTrack(track.id, simulatedPath, mockSize)
